@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTTaskNode.h"
 #include "AIController.h"
-#include "PatrollingGuard.h" // TODO remove coupling
+#include "PatrolRoute.h"
 #include "ChooseNextWaypoint.generated.h"
 
 /**

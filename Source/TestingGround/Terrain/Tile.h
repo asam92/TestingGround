@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Engine/World.h"
 #include "Tile.generated.h"
 
 UCLASS()
@@ -26,6 +27,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	
+private:
+
+	bool CastSphere(FVector Location, float Radius);
 	
 };

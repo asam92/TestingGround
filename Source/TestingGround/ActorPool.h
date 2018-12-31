@@ -18,16 +18,12 @@ public:
 
 	AActor* Checkout();
 	void Return(AActor* ActorToReturn);
+
 	void Add(AActor* ActorToAdd);
 
-protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
+private:
 
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
+	TArray<AActor*> Pool;
 		
 	
 };

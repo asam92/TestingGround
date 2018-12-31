@@ -7,6 +7,18 @@
 #include "Engine/World.h"
 #include "Tile.generated.h"
 
+USTRUCT()
+struct FSpawnPosition
+{
+	GENERATED_USTRUCT_BODY()
+
+	FVector Location;
+	float Rotation;
+	float Scale;
+
+};
+
+
 class UActorPool;
 
 UCLASS()
@@ -44,13 +56,15 @@ public:
 
 private:
 
+	TArray<FSpawnPosition> RandomSpawnPositions( int32 MinSpawn = 1, int32 MaxSpawn = 1, float Radius = 500, float MinScale =1, float MaxScale = 1);
+
 	bool CanSpawnAtLocation(FVector Location, float Radius);
 
 	bool FindEmptyLocation(FVector& OutLocation, float Radius);
 
 	void PositionNavMeshBoundsVolume();
 
-	void PlaceActor(TSubclassOf<AActor>ToSpawn, FVector SpawnPoint, float Rotation, float Scale);
+	void PlaceActor(TSubclassOf<AActor>ToSpawn, const FSpawnPosition& SpawnPosition);
 	
 	UActorPool* Pool;
 

@@ -109,6 +109,10 @@ void ATile::PlaceActor(TSubclassOf<AActor> ToSpawn, const FSpawnPosition& SpawnP
 void ATile::PlaceAIPawn(TSubclassOf<APawn> &ToSpawn, const FSpawnPosition SpawnPosition)
 {
 	APawn* Spawned = GetWorld()->SpawnActor<APawn>(ToSpawn);
+	if (Spawned == nullptr)
+	{
+		return;
+	}
 	Spawned->SetActorRelativeLocation(SpawnPosition.Location);
 	Spawned->AttachToActor(this, FAttachmentTransformRules(EAttachmentRule::KeepRelative, false));
 	Spawned->SetActorRotation(FRotator(0, SpawnPosition.Rotation, 0));
